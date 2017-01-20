@@ -1,12 +1,12 @@
-require "fastcov/version"
-require "json"
+require 'fastcov/version'
+require 'json'
 # require "fastcov/file_writer"
 # require "fastcov/coverage"
 
 module Fastcov
   class << self
     def start
-      require "coverage"
+      require 'coverage'
       Coverage.start
       at_exit do
         result = Coverage.result

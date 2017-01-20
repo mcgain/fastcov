@@ -2,13 +2,13 @@ require 'spec_helper'
 require 'json'
 
 describe Fastcov do
-  it "writes a filename including the process id (pid)" do
+  it 'writes a filename including the process id (pid)' do
     pid = run_sample_code
 
     expect(File).to exist("/tmp/fastcov-#{pid}.json")
   end
 
-  it "produces a coverage report in json" do
+  it 'produces a coverage report in json' do
     pid = run_sample_code
     content = JSON.parse(File.read("/tmp/fastcov-#{pid}.json"))
     expect(content).to eq({
@@ -18,7 +18,7 @@ describe Fastcov do
   end
 
   def run_sample_code
-    pid = spawn("ruby spec/fixtures/sample_code_entry_point.rb")
+    pid = spawn('ruby spec/fixtures/sample_code_entry_point.rb')
     Process.wait(pid)
     pid
   end
