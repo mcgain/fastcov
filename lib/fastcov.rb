@@ -1,7 +1,5 @@
 require 'fastcov/version'
 require 'json'
-# require "fastcov/file_writer"
-# require "fastcov/coverage"
 
 module Fastcov
   class << self

@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'json'
+require 'english'
 
 describe Fastcov do
   it 'writes a filename including the process id (pid)' do
@@ -17,12 +18,20 @@ describe Fastcov do
     })
   end
 
+  it 'maintains the exit code in successful cases' do
+    run_sample_code
+    expect($CHILD_STATUS.exitstatus).to eq(0)
+  end
+
+  it 'maintains the exit code in failure cases' do
+    pid = spawn('ruby spec/fixtures/sample_code_with_failure_entry_point.rb')
+    Process.wait(pid)
+    expect($CHILD_STATUS.exitstatus).to eq(10)
+  end
+
   def run_sample_code
     pid = spawn('ruby spec/fixtures/sample_code_entry_point.rb')
     Process.wait(pid)
     pid
   end
 end
-
-#todo
-# deal with exit status
