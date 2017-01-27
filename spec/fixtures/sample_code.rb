@@ -3,7 +3,7 @@ require 'fastcov'
 
 class SampleClass
   def call
-    if true
+    if true # rubocop:disable ConditionalAssignment, LiteralInCondition
       x = 1
     else
       x = 2

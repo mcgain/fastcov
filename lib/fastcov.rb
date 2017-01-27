@@ -13,4 +13,3 @@ module Fastcov
     end
   end
 end
-

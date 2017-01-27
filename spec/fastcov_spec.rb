@@ -12,10 +12,10 @@ describe Fastcov do
   it 'produces a coverage report in json' do
     pid = run_sample_code
     content = JSON.parse(File.read("/tmp/fastcov-#{pid}.json"))
-    expect(content).to eq({
+    expect(content).to eq(
       File.join(Dir.pwd, %w(spec fixtures sample_code.rb)) =>
-        [1, 1, nil, 1, 1, 1, 1, nil, 0, nil, 1, nil, 1, nil]
-    })
+      [1, 1, nil, 1, 1, 1, 1, nil, 0, nil, 1, nil, 1, nil]
+    )
   end
 
   it 'maintains the exit code in successful cases' do
