@@ -7,7 +7,7 @@ Fastcov is an extremely simple alternative to [SimpleCov](https://github.com/col
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'fastcov', :require => false, :group => :test
+gem 'fastcov', require: false, group: :test
 ```
 
 And then execute:
@@ -21,11 +21,13 @@ Or install it yourself as:
 ## Usage
 
 At the top of your test helper (or spec helper), require and start Fastcov.
+
 ```
 require 'fastcov'
 Fastcov.start
 ```
-Note: If Fastcov starts after your application code is already loaded (via require), it won't be able to track your files and their coverage! The Fastcov.start must be issued before any of your application code is required!
+
+**Note:** If Fastcov starts after your application code is already loaded (via require), it won't be able to track your files and their coverage! The `Fastcov.start` must be issued before any of your application code is required!
 
 Fastcov will record coverage and by default, at program exit, it will output one file per process that it was run in.
 The output file is a json file saved to `/tmp/fastcov-[PID].json`
